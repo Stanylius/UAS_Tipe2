@@ -89,8 +89,10 @@
             android:textSize="18sp" />
 
         <Spinner
+            android:id="@+id/posisi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:entries="@array/array_posisi"/>
 
         <TextView
             android:layout_width="match_parent"
