@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -35,6 +36,12 @@ Employee employee;
         biorgrafi = (EditText)findViewById(R.id.input_gaji);
 
         posisi = (Spinner)findViewById(R.id.posisi);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.array_posisi, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        posisi.setAdapter(adapter);
 
         kelas = (CheckBox)findViewById(R.id.kelasA);
 
