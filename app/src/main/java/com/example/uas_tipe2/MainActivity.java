@@ -83,12 +83,8 @@ public class MainActivity extends AppCompatActivity {
         mCreateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRegisterActivity();
+                startActivity(new Intent(getApplicationContext(),Register.class));
             }
         });
-    }
-    public void openRegisterActivity(){
-        Intent intent = new Intent(this, Register.class);
-        startActivity(intent);
     }
 }
