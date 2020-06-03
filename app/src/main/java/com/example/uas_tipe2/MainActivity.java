@@ -1,64 +1,94 @@
 package com.example.uas_tipe2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 
 public class MainActivity extends AppCompatActivity {
-EditText nama, email, hp, gaji, biorgrafi;
-Spinner posisi;
-CheckBox kelas;
-Button btnSubmit;
+    EditText mEmail,mPassword;
+    Button mLoginBtn;
+    TextView mCreateBtn;
+    FirebaseAuth fAuth;
 
-DatabaseReference reff;
-
-Employee employee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add);
-        nama = (EditText)findViewById(R.id.input_nama);
-        email = (EditText)findViewById(R.id.input_email);
-        hp = (EditText)findViewById(R.id.input_phone);
-        gaji = (EditText)findViewById(R.id.input_gaji);
-        biorgrafi = (EditText)findViewById(R.id.input_gaji);
+        setContentView(R.layout.activity_main);
+        mEmail = findViewById(R.id.input_mail);
+        mPassword = findViewById(R.id.password);
+        fAuth = FirebaseAuth.getInstance();
+        mCreateBtn = findViewById(R.id.daftar);
+        mLoginBtn = findViewById(R.id.signIn);
 
-        posisi = (Spinner)findViewById(R.id.posisi);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.array_posisi, android.R.layout.simple_spinner_item);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        posisi.setAdapter(adapter);
-
-        kelas = (CheckBox)findViewById(R.id.kelasA);
-
-        reff = FirebaseDatabase.getInstance().getReference().child("Employee");
-
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+        mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                employee.setNama(nama.getText().toString().trim());
-                employee.setBiografi(biorgrafi.getText().toString().trim());
-                employee.setEmail(email.getText().toString().trim());
-                employee.setGaji(gaji.getText().toString().trim());
-                employee.setHp(hp.getText().toString().trim());
-                employee.setKelas(kelas.getText().toString().trim());
-                employee.setPosisi(posisi.getSelectedItem().toString().trim());
-                Toast.makeText(MainActivity.this, "upload success", Toast.LENGTH_LONG).show();
+
+                String email = mEmail.getText().toString().trim();
+                String password = mPassword.getText().toString().trim();
+
+                if(TextUtils.isEmpty(email)){
+                    mEmail.setError("Email is Required.");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(password)){
+                    mPassword.setError("Password is Required.");
+                    return;
+                }
+
+                if(password.length() < 6){
+                    mPassword.setError("Password Must be >= 6 Characters");
+                    return;
+                }
+
+                // authenticate the user
+
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(MainActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),Home.class));
+                        }else {
+                            Toast.makeText(MainActivity.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
             }
         });
+
+        mCreateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openRegisterActivity();
+            }
+        });
+    }
+    public void openRegisterActivity(){
+        Intent intent = new Intent(this, Register.class);
+        startActivity(intent);
     }
 }

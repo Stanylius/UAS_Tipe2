@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Register">
 
 
     <LinearLayout
@@ -25,9 +25,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
             android:gravity="center"
-            android:text="MASUK"
+            android:text="DAFTAR"
             android:textSize="36sp"
             android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/input_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama" />
 
         <EditText
             android:id="@+id/input_mail"
@@ -44,23 +50,31 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
+        <EditText
+            android:id="@+id/repassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ketik ulang Password"
+            android:inputType="textPassword" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/daftar"
+                android:id="@+id/masuk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Daftar disini" />
+                android:text="Masuk" />
 
             <Button
-                android:id="@+id/signIn"
+                android:id="@+id/signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Masuk" />
+                android:text="Daftar" />
         </LinearLayout>
 
     </LinearLayout>
