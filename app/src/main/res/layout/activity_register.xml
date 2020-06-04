@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
             android:gravity="center"
-            android:text="DAFTAR"
+            android:text="SIGN UP"
             android:textSize="36sp"
             android:textStyle="bold|italic" />
 
@@ -33,7 +33,7 @@
             android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nama" />
+            android:hint="Name" />
 
         <EditText
             android:id="@+id/input_mail"
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Ketik ulang Password"
+            android:hint="Confirm Password"
             android:inputType="textPassword" />
 
         <LinearLayout
@@ -68,13 +68,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Masuk" />
+                android:text="sign in" />
 
             <Button
                 android:id="@+id/signUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Daftar" />
+                android:text="SIGN UP" />
         </LinearLayout>
 
     </LinearLayout>

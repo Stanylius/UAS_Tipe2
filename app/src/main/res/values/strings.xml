@@ -5,4 +5,15 @@
         <item>Dosen</item>
         <item>Asisten laboratorium</item>
     </string-array>
+
+    <string-array name="array_view">
+        <item>List</item>
+        <item>Grid</item>
+        <item>Card</item>
+    </string-array>
+
+    <string-array name="array_bahasa">
+        <item>English</item>
+        <item>Indonesia</item>
+    </string-array>
 </resources>

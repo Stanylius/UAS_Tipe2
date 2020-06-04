@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
             android:gravity="center"
-            android:text="MASUK"
+            android:text="SIGN IN"
             android:textSize="36sp"
             android:textStyle="bold|italic" />
 
@@ -54,14 +54,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Daftar disini" />
+                android:text="REGISTER here" />
 
             <Button
                 android:id="@+id/signIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Masuk" />
+                android:text="SIGN IN" />
         </LinearLayout>
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dark Mode" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/bahasa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/array_bahasa"/>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Tambah"
+            android:text="Add"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Nama"
+            android:text="Name"
             android:textSize="18sp" />
 
         <EditText
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Nomor HP"
+            android:text="Phone Number"
             android:textSize="18sp" />
 
         <EditText
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Posisi"
+            android:text="Position"
             android:textSize="18sp" />
 
         <Spinner
@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Kelas"
+            android:text="Class"
             android:textSize="18sp" />
 
         <LinearLayout
@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="Gaji"
+            android:text="Salary"
             android:textSize="18sp" />
 
         <EditText
@@ -201,7 +201,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
-                android:text="gambar jpeg" />
+                android:text="image jpeg" />
         </LinearLayout>
 
         <LinearLayout
@@ -221,7 +221,7 @@
                 android:id="@+id/add_employee"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tambah" />
+                android:text="Add" />
         </LinearLayout>
 
     </LinearLayout>
